@@ -1,5 +1,3 @@
-console.log("Hello world");
-
 function getComputerChoice() 
 {
     let computerChoice = "";
@@ -17,11 +15,13 @@ function getComputerChoice()
     {
         computerChoice = "scissors";
     }
-    
+
+    console.log(computerChoice);
     return computerChoice;
 }
 
 function getHumanChoice()
 {
-
+    let userInput = window.prompt("Write rock, paper, or scissors.");
+    
 }
