@@ -24,4 +24,13 @@ function getHumanChoice()
 {
     let userInput = window.prompt("Write rock, paper, or scissors.");
     
+    let userChoice = userInput.toLowerCase();
+
+    if (!userChoice.equals("rock") && !userChoice.equals("paper") && !userChoice.equals("scissors"))
+    {
+        console.log("Invalid input");
+        getHumanChoice();
+    }
+
+    return userChoice;
 }
