@@ -1,6 +1,9 @@
 let humanScore = 0;
 let computerScore = 0;
 
+console.log(playGame());
+
+
 function getComputerChoice() 
 {
     let computerChoice;
@@ -19,13 +22,13 @@ function getComputerChoice()
         computerChoice = "scissors";
     }
 
-    console.log(computerChoice);
+    console.log("The computer chose: " + computerChoice);
     return computerChoice;
 }
 
 function getHumanChoice()
 {
-    let userInput = window.prompt("Write rock, paper, or scissors.");
+    let userInput = prompt("Write rock, paper, or scissors.");
     
     let humanChoice = userInput.toLowerCase();
 
@@ -35,7 +38,7 @@ function getHumanChoice()
         return getHumanChoice();
     }
 
-    console.log(humanChoice);
+    console.log("You chose: " + humanChoice);
     return humanChoice;
 }
 
@@ -75,6 +78,7 @@ function playRound(humanChoice, computerChoice)
         console.log("You lose! Rock beats scissors");
         computerScore++;
     }
+    console.log("Scores: Computer: " + computerScore + ", Player: " + humanScore);
 }
 
 function playGame()
