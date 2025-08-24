@@ -1,8 +1,18 @@
 let humanScore = 0;
 let computerScore = 0;
 
+const container = document.querySelector(".button-container");
+const buttons = document.querySelectorAll("button");
+
 console.log(playGame());
 
+buttons.forEach((button) => {
+    button.addEventListener("click", () => {
+        let humanChoice = button.id;
+        alert("You selected " + humanChoice);
+        return humanChoice;
+    });
+});
 
 function getComputerChoice() 
 {
@@ -11,7 +21,18 @@ function getComputerChoice()
 
     if (randomNum <= 0.33)
     {
-        computerChoice = "rock";
+        computerChoice = "rock";if (randomNum <= 0.33)
+            {
+                computerChoice = "rock";
+            }
+            else if (randomNum <= 0.66)
+            {
+                computerChoice = "paper";
+            }
+            else
+            {
+                computerChoice = "scissors";
+            }
     }
     else if (randomNum <= 0.66)
     {
@@ -26,21 +47,6 @@ function getComputerChoice()
     return computerChoice;
 }
 
-function getHumanChoice()
-{
-    let userInput = prompt("Write rock, paper, or scissors.");
-    
-    let humanChoice = userInput.toLowerCase();
-
-    if (humanChoice !== "rock" && humanChoice !== "paper" && humanChoice !== "scissors")
-    {
-        console.log("Invalid input");
-        return getHumanChoice();
-    }
-
-    console.log("You chose: " + humanChoice);
-    return humanChoice;
-}
 
 function playRound(humanChoice, computerChoice)
 {
