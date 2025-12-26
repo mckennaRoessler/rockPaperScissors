@@ -4,7 +4,13 @@ let computerScore = 0;
 const container = document.querySelector(".button-container");
 const buttons = document.querySelectorAll("button");
 
-console.log(playGame());
+const rockBtn = document.getElementById('rock');
+const paperBtn = document.getElementById('paper');
+const scissorsBtn = document.getElementById('scissors');
+
+//rockBtn.addEventListener('click', playRound("rock", getComputerChoice()));
+//paperBtn.addEventListener('click', playRound("paper", getComputerChoice()));
+//scissorsBtn.addEventListener('click', playRound("scissors", getComputerChoice()));
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -14,6 +20,8 @@ buttons.forEach((button) => {
     });
 });
 
+console.log(playGame());
+
 function getComputerChoice() 
 {
     let computerChoice;
@@ -21,18 +29,7 @@ function getComputerChoice()
 
     if (randomNum <= 0.33)
     {
-        computerChoice = "rock";if (randomNum <= 0.33)
-            {
-                computerChoice = "rock";
-            }
-            else if (randomNum <= 0.66)
-            {
-                computerChoice = "paper";
-            }
-            else
-            {
-                computerChoice = "scissors";
-            }
+        computerChoice = "rock";
     }
     else if (randomNum <= 0.66)
     {
@@ -47,6 +44,21 @@ function getComputerChoice()
     return computerChoice;
 }
 
+function getHumanChoice()
+{
+    let userInput = prompt("Write rock, paper, or scissors.");
+    
+    let humanChoice = userInput.toLowerCase();
+
+    if (humanChoice !== "rock" && humanChoice !== "paper" && humanChoice !== "scissors")
+    {
+        console.log("Invalid input");
+        return getHumanChoice();
+    }
+
+    console.log("You chose: " + humanChoice);
+    return humanChoice;
+}
 
 function playRound(humanChoice, computerChoice)
 {
@@ -89,12 +101,10 @@ function playRound(humanChoice, computerChoice)
 
 function playGame()
 {
-    for (let i = 0; i <= 5; i++)
-    {
-        const humanChoice = getHumanChoice();
-        const computerChoice = getComputerChoice();
-        playRound(humanChoice, computerChoice);
-    }
+    const humanChoice = getHumanChoice();
+    const computerChoice = getComputerChoice();
+    playRound(humanChoice, computerChoice);
+    
 
     if (humanScore > computerScore)
     {
