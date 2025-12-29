@@ -8,6 +8,11 @@ const rockBtn = document.getElementById('rock');
 const paperBtn = document.getElementById('paper');
 const scissorsBtn = document.getElementById('scissors');
 
+const results = document.querySelector(".results");
+const playerRunningTotal = document.getElementById('player_running_total');
+const computerRunningTotal = document.getElementById('computer_running_total');
+
+
 //rockBtn.addEventListener('click', playRound("rock", getComputerChoice()));
 //paperBtn.addEventListener('click', playRound("paper", getComputerChoice()));
 //scissorsBtn.addEventListener('click', playRound("scissors", getComputerChoice()));
@@ -15,8 +20,8 @@ const scissorsBtn = document.getElementById('scissors');
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
         let humanChoice = button.id;
-        alert("You selected " + humanChoice);
-        return humanChoice;
+        playRound(humanChoice, getComputerChoice());
+        //return humanChoice;
     });
 });
 
