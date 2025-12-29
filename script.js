@@ -8,15 +8,11 @@ const rockBtn = document.getElementById('rock');
 const paperBtn = document.getElementById('paper');
 const scissorsBtn = document.getElementById('scissors');
 
-const results = document.querySelector(".results");
+const results = document.getElementsByClassName(".results");
 const playerRunningTotal = document.getElementById('player_running_total');
 const computerRunningTotal = document.getElementById('computer_running_total');
 const winner = document.getElementById('winner');
 
-
-//rockBtn.addEventListener('click', playRound("rock", getComputerChoice()));
-//paperBtn.addEventListener('click', playRound("paper", getComputerChoice()));
-//scissorsBtn.addEventListener('click', playRound("scissors", getComputerChoice()));
 
 buttons.forEach((button) => {
     button.addEventListener("click", () => {
@@ -25,8 +21,6 @@ buttons.forEach((button) => {
         //return humanChoice;
     });
 });
-
-console.log(playGame());
 
 function getComputerChoice() 
 {
@@ -46,23 +40,17 @@ function getComputerChoice()
         computerChoice = "scissors";
     }
 
-    console.log("The computer chose: " + computerChoice);
     return computerChoice;
 }
 
 function getHumanChoice()
 {
-    let userInput = prompt("Write rock, paper, or scissors.");
-    
-    let humanChoice = userInput.toLowerCase();
-
     if (humanChoice !== "rock" && humanChoice !== "paper" && humanChoice !== "scissors")
     {
         console.log("Invalid input");
         return getHumanChoice();
     }
 
-    console.log("You chose: " + humanChoice);
     return humanChoice;
 }
 
@@ -128,3 +116,5 @@ function playGame()
         }
     }
 }
+
+playGame();
